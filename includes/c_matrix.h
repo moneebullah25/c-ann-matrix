@@ -14,8 +14,8 @@
  * unsigned int num_rows : Number of rows in the matrix.
  * unsigned int num_cols : Number of columns in the matrix.
  * double** data : A two-dimensional array of double-precision floating-point values representing the data in the matrix.
- * bool is_square : A boolean value indicating whether the matrix is square or not. 
-**/
+ * bool is_square : A boolean value indicating whether the matrix is square or not.
+ **/
 typedef struct {
 	unsigned int num_rows, num_cols;
 	double** data;
@@ -32,7 +32,7 @@ typedef struct {
  * - num_rows and num_cols should be greater than 0
  * Time complexity: O(num_rows * num_cols)
  * Space complexity: O(num_rows * num_cols)
-**/
+ **/
 Matrix* MatrixNew(unsigned int num_rows, unsigned int num_cols);
 
 /**
@@ -46,7 +46,7 @@ Matrix* MatrixNew(unsigned int num_rows, unsigned int num_cols);
  * - num_rows and num_cols should be greater than 0
  * Time complexity: O(num_rows * num_cols)
  * Space complexity: O(num_rows * num_cols)
-**/
+ **/
 Matrix* MatrixRandom(unsigned int num_rows, unsigned int num_cols, double min, double max);
 
 /**
@@ -57,7 +57,7 @@ Matrix* MatrixRandom(unsigned int num_rows, unsigned int num_cols, double min, d
  * - size should be greater than 0
  * Time complexity: O(size^2)
  * Space complexity: O(size^2)
-**/
+ **/
 Matrix* MatrixSquare(unsigned int size);
 
 /**
@@ -70,7 +70,7 @@ Matrix* MatrixSquare(unsigned int size);
  * - size should be greater than 0
  * Time complexity: O(size^2)
  * Space complexity: O(size^2)
-**/
+ **/
 Matrix* MatrixSquareRandom(unsigned int size, double min, double max);
 
 /**
@@ -82,7 +82,7 @@ Matrix* MatrixSquareRandom(unsigned int size, double min, double max);
  * - num_rows and num_cols should be greater than 0
  * Time complexity: O(num_rows * num_cols)
  * Space complexity: O(num_rows * num_cols)
-**/
+ **/
 Matrix* MatrixZero(unsigned int num_rows, unsigned int num_cols);
 
 /**
@@ -94,7 +94,7 @@ Matrix* MatrixZero(unsigned int num_rows, unsigned int num_cols);
  * - num_rows and num_cols should be greater than 0
  * Time complexity: O(num_rows * num_cols)
  * Space complexity: O(num_rows * num_cols)
-**/
+ **/
 Matrix* MatrixOne(unsigned int num_rows, unsigned int num_cols);
 
 /**
@@ -106,7 +106,7 @@ Matrix* MatrixOne(unsigned int num_rows, unsigned int num_cols);
  * - num_rows and num_cols should be positive values
  * Time complexity: O(mn), where m is the number of rows and n is the number of columns
  * Space complexity: O(mn), where m is the number of rows and n is the number of columns
-**/
+ **/
 Matrix* MatrixN(unsigned int num_rows, unsigned int num_cols, double value);
 
 /**
@@ -117,7 +117,7 @@ Matrix* MatrixN(unsigned int num_rows, unsigned int num_cols, double value);
  * - size should be a positive value
  * Time complexity: O(n^2), where n is the size of the matrix
  * Space complexity: O(n^2), where n is the size of the matrix
-**/
+ **/
 Matrix* MatrixIdentity(unsigned int size);
 
 /**
@@ -133,7 +133,7 @@ Matrix* MatrixIdentity(unsigned int size);
  * - values should not be a nullptr
  * Time complexity: O(mn), where m is the number of rows and n is the number of columns
  * Space complexity: O(mn), where m is the number of rows and n is the number of columns
-**/
+ **/
 Matrix* MatrixFrom(unsigned int num_rows, unsigned int num_cols, unsigned int n_values, double *values);
 
 /**
@@ -144,7 +144,7 @@ Matrix* MatrixFrom(unsigned int num_rows, unsigned int num_cols, unsigned int n_
  * - file should contain a valid matrix
  * Time complexity: O(mn), where m is the number of rows and n is the number of columns
  * Space complexity: O(mn), where m is the number of rows and n is the number of columns
-**/
+ **/
 Matrix* MatrixFromFile(const char* file);
 
 /**
@@ -154,7 +154,7 @@ Matrix* MatrixFromFile(const char* file);
  * m should not be a nullptr
  * Time complexity: O(mn), where m is the number of rows and n is the number of columns
  * Space complexity: O(mn), where m is the number of rows and n is the number of columns
-**/
+ **/
 Matrix* MatrixCopy(Matrix* m);
 
 /* Matrix Basic */
@@ -168,7 +168,7 @@ Matrix* MatrixCopy(Matrix* m);
  * Time complexity: O(1)
  * Space complexity: O(1)
  * @return true if the number of rows and columns of the two matrices are equal, false otherwise
-**/
+ **/
 bool IsMatrixEqualDim(Matrix* m1, Matrix* m2);
 
 /**
@@ -181,7 +181,7 @@ bool IsMatrixEqualDim(Matrix* m1, Matrix* m2);
  * - data_format string should not be nullptr
  * Time complexity: O(mn) where m and n are the number of rows and columns of the matrix respectively
  * Space complexity: O(1)
-**/
+ **/
 void PrintMatrix(Matrix* m, const char* data_format);
 
 /**
@@ -193,7 +193,7 @@ void PrintMatrix(Matrix* m, const char* data_format);
  * Time complexity: O(mn^3) where m and n are the number of rows and columns of the matrix respectively
  * Space complexity: O(1)
  * @return true if the matrix is invertible, false otherwise
-**/
+ **/
 bool IsMatrixInvertible(Matrix* m);
 
 /* Matrix Accessing and Modifying */
@@ -207,7 +207,7 @@ bool IsMatrixInvertible(Matrix* m);
  * @param row Row index of the desired value.
  * @param col Column index of the desired value.
  * @return The value stored at the specified row and column in the matrix.
-**/
+ **/
 double MatrixGet(Matrix* m, unsigned row, unsigned col);
 
 /**
@@ -219,7 +219,7 @@ double MatrixGet(Matrix* m, unsigned row, unsigned col);
  * @param m Pointer to the matrix.
  * @param col Column index to extract from the matrix.
  * @return A new matrix representing the specified column from the input matrix.
-**/
+ **/
 Matrix* MatrixColumnGet(Matrix* m, unsigned int col);
 
 /**
@@ -231,7 +231,7 @@ Matrix* MatrixColumnGet(Matrix* m, unsigned int col);
  * @param m Pointer to the matrix.
  * @param row Row index to extract from the matrix.
  * @return A new matrix representing the specified row from the input matrix.
-**/
+ **/
 Matrix* MatrixRowGet(Matrix* m, unsigned int row);
 
 /**
@@ -244,7 +244,7 @@ Matrix* MatrixRowGet(Matrix* m, unsigned int row);
  * @param row Row index of the value to set.
  * @param col Column index of the value to set.
  * @param value The value to set at the specified row and column in the matrix.
-**/
+ **/
 void MatrixSet(Matrix* m, unsigned int row, unsigned int col, double value);
 
 /**
@@ -255,7 +255,7 @@ void MatrixSet(Matrix* m, unsigned int row, unsigned int col, double value);
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @param value The value to set all values in the matrix to.
-**/
+ **/
 void MatrixAllSet(Matrix* m, double value);
 
 /**
@@ -266,7 +266,7 @@ void MatrixAllSet(Matrix* m, double value);
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @param value The value to set all diagonal values in the matrix to.
-**/
+ **/
 void MatrixDiagonalSet(Matrix* m, double value);
 
 /**
@@ -278,7 +278,7 @@ void MatrixDiagonalSet(Matrix* m, double value);
  * @param m Pointer to the matrix.
  * @param row Row index of the values to multiply.
  * @param value The value to multiply all values in the specified row of the matrix by.
-**/
+ **/
 void MatrixRowMultiplyValue(Matrix* m, unsigned int row, double value);
 
 /**
@@ -290,7 +290,7 @@ void MatrixRowMultiplyValue(Matrix* m, unsigned int row, double value);
  * @param m Pointer to the matrix.
  * @param row Row index of the values to multiply.
  * @param value The value to multiply all values in the specified row of the matrix by.
-**/
+ **/
 void MatrixRowAddValue(Matrix* m, unsigned int row, double value);
 
 /**
@@ -302,7 +302,7 @@ void MatrixRowAddValue(Matrix* m, unsigned int row, double value);
  * @param m Pointer to the matrix.
  * @param col Column index of the values to multiply.
  * @param value The value to multiply all values in the specified row of the matrix by.
-**/
+ **/
 void MatrixColumnMultiplyValue(Matrix* m, unsigned int col, double value);
 
 /**
@@ -314,12 +314,12 @@ void MatrixColumnMultiplyValue(Matrix* m, unsigned int col, double value);
  * @param m Pointer to the matrix.
  * @param col Column index of the values to multiply.
  * @param value The value to multiply all values in the specified row of the matrix by.
-**/
+ **/
 void MatrixColumnAddValue(Matrix* m, unsigned int col, double value);
 
 /**
  * Function that is used to multiply a row to another row (with a multiplicator).
- * This will do the following: m->data[where][...] *= m->data[row][...] * value. 
+ * This will do the following: m->data[where][...] *= m->data[row][...] * value.
  * The results will be kept in a new matrix. Matrix m remains unchanged.
  * @param m pointer to the matrix
  * @param where index of the row to be multiplied
@@ -329,12 +329,12 @@ void MatrixColumnAddValue(Matrix* m, unsigned int col, double value);
  * - m pointer should not be nullptr
  * Time complexity: O(n), where n is the number of columns in the matrix
  * Space complexity: O(1)
-**/
+ **/
 void MatrixRowMultiplyRow(Matrix* m, unsigned int where, unsigned int row, double value);
 
 /**
  * Function that is used to add a row to another row (with a multiplicator).
- * This will do the following: m->data[where][...] += m->data[row][...] * value. 
+ * This will do the following: m->data[where][...] += m->data[row][...] * value.
  * The results will be kept in a new matrix. Matrix m remains unchanged.
  * @param m pointer to the matrix
  * @param where index of the row to be multiplied
@@ -344,12 +344,12 @@ void MatrixRowMultiplyRow(Matrix* m, unsigned int where, unsigned int row, doubl
  * - m pointer should not be nullptr
  * Time complexity: O(n), where n is the number of columns in the matrix
  * Space complexity: O(1)
-**/
+ **/
 void MatrixRowAddRow(Matrix* m, unsigned int where, unsigned int row, double value);
 
 /**
  * Function that is used to multiply a column to another column (with a multiplicator).
- * This will do the following: m->data[column][where] *= m->data[...][column] * value. 
+ * This will do the following: m->data[column][where] *= m->data[...][column] * value.
  * The results will be kept in a new matrix. Matrix m remains unchanged.
  * @param m pointer to the matrix
  * @param where index of the column to be multiplied
@@ -359,12 +359,12 @@ void MatrixRowAddRow(Matrix* m, unsigned int where, unsigned int row, double val
  * - m pointer should not be nullptr
  * Time complexity: O(n), where n is the number of columns in the matrix
  * Space complexity: O(1)
-**/
+ **/
 void MatrixColumnMultiplyColumn(Matrix* m, unsigned int where, unsigned int col, double value);
 
 /**
  * Function that is used to add a column to another column (with a multiplicator).
- * This will do the following: m->data[column][where] *= m->data[...][column] * value. 
+ * This will do the following: m->data[column][where] *= m->data[...][column] * value.
  * The results will be kept in a new matrix. Matrix m remains unchanged.
  * @param m pointer to the matrix
  * @param where index of the column to be multiplied
@@ -374,7 +374,7 @@ void MatrixColumnMultiplyColumn(Matrix* m, unsigned int where, unsigned int col,
  * - m pointer should not be nullptr
  * Time complexity: O(n), where n is the number of columns in the matrix
  * Space complexity: O(1)
-**/
+ **/
 void MatrixColumnAddValueColumn(Matrix* m, unsigned int where, unsigned int col, double value);
 
 /**
@@ -385,7 +385,7 @@ void MatrixColumnAddValueColumn(Matrix* m, unsigned int where, unsigned int col,
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @param value The value to set all values in the matrix to.
-**/
+ **/
 void MatrixWholeMultiply(Matrix* m, double value);
 
 /**
@@ -396,7 +396,7 @@ void MatrixWholeMultiply(Matrix* m, double value);
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @param value The value to set all values in the matrix to.
-**/
+ **/
 void MatrixWholeAdd(Matrix* m, double value);
 
 /**
@@ -409,7 +409,7 @@ void MatrixWholeAdd(Matrix* m, double value);
  * @param m Pointer to the matrix.
  * @param row The row to be removed from the matrix.
  * @return Pointer to the matrix with the specified row removed.
-**/
+ **/
 Matrix* MatrixRowRemove(Matrix* m, unsigned int row);
 
 /**
@@ -422,7 +422,7 @@ Matrix* MatrixRowRemove(Matrix* m, unsigned int row);
  * @param m Pointer to the matrix.
  * @param col The column to be removed from the matrix.
  * @return Pointer to the matrix with the specified column removed.
-**/
+ **/
 Matrix* MatrixColumnRemove(Matrix* m, unsigned int col);
 
 /**
@@ -435,7 +435,7 @@ Matrix* MatrixColumnRemove(Matrix* m, unsigned int col);
  * @param m Pointer to the matrix.
  * @param row1 The first row to be swapped.
  * @param row2 The second row to be swapped.
-**/
+ **/
 void MatrixRowSwap(Matrix* m, unsigned int row1, unsigned int row2);
 
 /**
@@ -448,7 +448,7 @@ void MatrixRowSwap(Matrix* m, unsigned int row1, unsigned int row2);
  * @param m Pointer to the matrix.
  * @param col1 The first column to be swapped.
  * @param col2 The second column to be swapped.
-**/
+ **/
 void MatrixColumnSwap(Matrix* m, unsigned int col1, unsigned int col2);
 
 /**
@@ -461,7 +461,7 @@ void MatrixColumnSwap(Matrix* m, unsigned int col1, unsigned int col2);
  * @param m Pointer to the matrix.
  * @param row The number of rows that new broadcasted matrix will have
  * @return Pointer to the matrix with the specified row broadcasted to all other rows.
-**/
+ **/
 Matrix* MatrixBroadcastRows(Matrix* m, unsigned int row);
 
 /**
@@ -474,11 +474,11 @@ Matrix* MatrixBroadcastRows(Matrix* m, unsigned int row);
  * @param m Pointer to the matrix.
  * @param col The number of columns that new broadcasted matrix will have
  * @return Pointer to the matrix with the specified row broadcasted to all other rows.
-**/
+ **/
 Matrix* MatrixBroadcastColumns(Matrix* m, unsigned int col);
 
 /**
- * Broadcast the row of a matrix to row passed as argument and return that new matrix. 
+ * Broadcast the row of a matrix to row passed as argument and return that new matrix.
  * And then Broadcast the column of a matrix to column passed as argument and return that new matrix.
  * Time complexity: O(mn), where m is the number of rows and n is the number of columns in the matrix.
  * Space complexity: O(mn)
@@ -490,7 +490,7 @@ Matrix* MatrixBroadcastColumns(Matrix* m, unsigned int col);
  * @param row The number of rows that new broadcasted matrix will have
  * @param col The number of columns that new broadcasted matrix will have
  * @return Pointer to the matrix with the specified row broadcasted to all other rows.
-**/
+ **/
 Matrix* MatrixBroadcastRowsAndColumns(Matrix* m, unsigned int row, unsigned int col);
 
 /* Matrix Operatons */
@@ -504,7 +504,7 @@ Matrix* MatrixBroadcastRowsAndColumns(Matrix* m, unsigned int row, unsigned int 
  * @param m1 Pointer to the first matrix.
  * @param m2 Pointer to the second matrix.
  * @return Pointer to the result matrix.
-**/
+ **/
 Matrix* MatrixAdd(Matrix* m1, Matrix* m2);
 
 /**
@@ -517,7 +517,7 @@ Matrix* MatrixAdd(Matrix* m1, Matrix* m2);
  * @param m1 Pointer to the first matrix.
  * @param m2 Pointer to the second matrix.
  * @return Pointer to the result matrix.
-**/
+ **/
 Matrix* MatrixSubtract(Matrix* m1, Matrix* m2);
 
 /**
@@ -530,7 +530,7 @@ Matrix* MatrixSubtract(Matrix* m1, Matrix* m2);
  * @param m1 Pointer to the first matrix.
  * @param m2 Pointer to the second matrix.
  * @return Pointer to the result matrix.
-**/
+ **/
 Matrix* MatrixMultiply(Matrix* m1, Matrix* m2);
 
 /**
@@ -543,7 +543,7 @@ Matrix* MatrixMultiply(Matrix* m1, Matrix* m2);
  * @param m1 Pointer to the first matrix.
  * @param m2 Pointer to the second matrix.
  * @return Pointer to the result matrix.
-**/
+ **/
 Matrix* MatrixAddWithBroadcast(Matrix* m1, Matrix* m2);
 
 /**
@@ -556,7 +556,7 @@ Matrix* MatrixAddWithBroadcast(Matrix* m1, Matrix* m2);
  * @param m1 Pointer to the first matrix.
  * @param m2 Pointer to the second matrix.
  * @return Pointer to the result matrix.
-**/
+ **/
 Matrix* MatrixSubtractWithBroadcast(Matrix* m1, Matrix* m2);
 
 /**
@@ -567,7 +567,7 @@ Matrix* MatrixSubtractWithBroadcast(Matrix* m1, Matrix* m2);
  * Requirements:
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
-**/
+ **/
 void MatrixTranspose(Matrix* m);
 
 /**
@@ -580,7 +580,7 @@ void MatrixTranspose(Matrix* m);
  * - m should be a square matrix
  * @param m Pointer to the square matrix.
  * @return The trace of the matrix.
-**/
+ **/
 double MatrixTrace(Matrix* m);
 
 /**
@@ -593,7 +593,7 @@ double MatrixTrace(Matrix* m);
  * - m should be a square matrix
  * @param m Pointer to the square matrix.
  * @return The determinant of the matrix.
-**/
+ **/
 double MatrixDeterminant(Matrix* m);
 
 /**
@@ -604,7 +604,7 @@ double MatrixDeterminant(Matrix* m);
  * Requirements:
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
-**/
+ **/
 void MatrixRowEchelon(Matrix* m);
 
 /**
@@ -615,7 +615,7 @@ void MatrixRowEchelon(Matrix* m);
  * Requirements:
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
-**/
+ **/
 void MatrixReducedRowEchelon(Matrix* m);
 
 /**
@@ -627,7 +627,7 @@ void MatrixReducedRowEchelon(Matrix* m);
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @return A new matrix with the row echelon form of the input matrix.
-**/
+ **/
 Matrix* MatrixRowEchelonGet(Matrix* m);
 
 /**
@@ -639,7 +639,7 @@ Matrix* MatrixRowEchelonGet(Matrix* m);
  * - m pointer should not be nullptr
  * @param m Pointer to the matrix.
  * @return A new matrix with the row echelon form of the input matrix.
-**/
+ **/
 Matrix* MatrixReducedRowEchelonGet(Matrix* m);
 
 /**
@@ -652,7 +652,7 @@ Matrix* MatrixReducedRowEchelonGet(Matrix* m);
  * @param m Pointer to the matrix.
  * @param col The index of the column for which the L2-norm is to be calculated.
  * @return The L2-norm of the specified column.
-**/
+ **/
 double MatrixColumnL2Norm(Matrix* m, unsigned int col);
 
 /**
@@ -664,14 +664,14 @@ double MatrixColumnL2Norm(Matrix* m, unsigned int col);
  * @param m Pointer to the matrix.
  * @return Pointer to a matrix with one row and n columns, where n is the number of columns in the original matrix.
  * Each entry in this matrix is the L2-norm of the corresponding column in the original matrix.
-**/
+ **/
 Matrix* MatrixL2Norm(Matrix* m);
 
 /* Matrix Dispose */
 /**
  * Free the memory allocated for the matrix.
  * @param m Pointer to the matrix.
-**/
+ **/
 void MatrixFree(Matrix* m);
 
 #endif /* _C_MATRIX_HEADER_ */
