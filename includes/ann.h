@@ -32,7 +32,7 @@ void ANNUpdateWeights(ANN* ann, double* weights, double* biases);
 E = SUMMATION(1/2 * (target - output)^2) :: Delta = (target - output)
 For PReLU and ELU Alpha must be provided [0, 1]
 For rest of Activation Functions Alpha can be of any value since not used*/
-void ANNForwardPropagate(ANN* ann, double const *inputs);
+void ANNForwardPropagate(ANN* ann, double *inputs);
 
 void ANNTotalError(ANN* ann, double const* outputs, double* result);
 

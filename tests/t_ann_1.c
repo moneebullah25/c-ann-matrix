@@ -22,14 +22,14 @@ int main()
 	double weights[] = { .15, .2, .25, .3, .4, .45, .5, .55 };
 	double biases[] = { .35, .60 };
 	ANNUpdateWeights(ann, weights,biases);
+	for (unsigned int i = 0; i < 1000; i++) 
+	{
+		ANNForwardPropagate(ann, inputs);
 
-	ANNForwardPropagate(ann, inputs);
+		double total_error;
+		ANNTotalError(ann, outputs, &total_error);
 
-	double total_error;
-	ANNTotalError(ann, outputs, &total_error);
-
-	ANNBackwardPropagate(ann, inputs, outputs, 0.5);
-	printf("%.9f ", total_error);
-
-	scanf("%d");
+		ANNBackwardPropagate(ann, inputs, outputs, 0.5);
+		printf("%.9f\n", total_error);
+	}
 }

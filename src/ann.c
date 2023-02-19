@@ -40,7 +40,7 @@ ANN* ANNNew(unsigned int input_neurons_size, unsigned int hidden_neurons_size,
 void ANNRandomWeights(ANN *ann, double lower, double upper)
 {
 	ASSERT(ann && (upper > lower));
-	srand(time(NULL)); // Initialization, should only be called once.
+	srand((unsigned int)time(NULL)); // Initialization, should only be called once.
 	for (unsigned int i = 0; i < ann->total_weights; i++)
 	{
 		double randD = lower + (rand() / (double)RAND_MAX) * (upper - lower);
@@ -62,7 +62,7 @@ void ANNUpdateWeights(ANN *ann, double *weights, double *biases)
 		ann->biases[i] = biases[i];
 }
 
-void ANNForwardPropagate(ANN *ann, double const *inputs)
+void ANNForwardPropagate(ANN *ann, double *inputs)
 {
 	Matrix *input_matrix, *weights_matrix, *bias_matrix, *output_matrix;
 	input_matrix = MatrixFrom(ann->input_neurons_size, 1, ann->input_neurons_size, inputs);
@@ -71,10 +71,6 @@ void ANNForwardPropagate(ANN *ann, double const *inputs)
 	weights_matrix = MatrixFrom(ann->hidden_neurons_size, ann->input_neurons_size, ann->total_weights, ann->weights);
 	bias_matrix = MatrixFrom(ann->hidden_neurons_size, 1, ann->hidden_neurons_size, ann->biases);
 	output_matrix = MatrixAdd(MatrixMultiply(weights_matrix, input_matrix), bias_matrix);
-
-	PrintMatrix(weights_matrix, "%lf\t");
-	PrintMatrix(output_matrix, "%lf\t");
-
 
 	if (ann->activation_hidden.num_arg == 1)
 	{

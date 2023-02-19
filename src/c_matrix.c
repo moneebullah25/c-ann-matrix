@@ -1,5 +1,4 @@
 #include "../includes/c_matrix.h"
-#include "../includes/c_helper.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

@@ -19,11 +19,11 @@ double D_TANH(double x) {
 	return 1 - t * t;
 }
 
-double ReLU(x) {
+double ReLU(double x) {
 	return x > 0 ? x : 0;
 }
 
-double DReLU(x) {
+double DReLU(double x) {
 	return x > 0 ? 1 : 0;
 }
 
@@ -67,21 +67,4 @@ double GELU(double x) {
 double D_GELU(double x) {
 	double t = sqrt(2 / PIE_CONST) * exp(-x * x / 2);
 	return 0.5 * (1 + erf(x / sqrt(2))) + x * t;
-}
-
-void SOFTMAX(const int n, const double *x, double *result) {
-	double max_elem = x[0];
-	for (int i = 1; i < n; i++) {
-		if (x[i] > max_elem) {
-			max_elem = x[i];
-		}
-	}
-	double sum = 0;
-	for (int i = 0; i < n; i++) {
-		result[i] = exp(x[i] - max_elem);
-		sum += result[i];
-	}
-	for (int i = 0; i < n; i++) {
-		result[i] /= sum;
-	}
 }

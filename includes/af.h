@@ -25,8 +25,8 @@ double SIGMOID(double x);
 double D_SIGMOID(double x);
 double TANH(double x);
 double D_TANH(double x);
-double ReLU(x);
-double DReLU(x);
+double ReLU(double x);
+double DReLU(double x);
 double LReLU(double x, double alpha);
 double D_LReLU(double x, double alpha);
 double PReLU(double x, double alpha);
@@ -37,6 +37,5 @@ double SWISH(double x);
 double D_SWISH(double x);
 double GELU(double x);
 double D_GELU(double x);
-void SOFTMAX(const int n, const double *x, double *result);
 
 #endif /* _AF_HEADER */
