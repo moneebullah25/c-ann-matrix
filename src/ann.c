@@ -143,7 +143,7 @@ void ANNUpdateWeights(ANN *ann, double *weights, double *biases)
 		ann->biases[i] = biases[i];
 }
 
-void ANNForwardPropagate(ANN *ann, double *inputs)
+void ANNForwardPropagate(ANN *ann, double const *inputs)
 {
 	Matrix *input_matrix, *weights_matrix, *bias_matrix, *output_matrix;
 	input_matrix = MatrixFrom(ann->input_neurons_size, 1, ann->input_neurons_size, inputs);
@@ -280,7 +280,6 @@ void ANNBackwardPropagate(ANN *ann, double const *inputs, double const *outputs,
 	free(delta_hidden);
 }
 
-
 void ANNTrain(ANN* ann, double const *inputs, double const* outputs, double learning_rate, unsigned int epochs_count)
 {
 	// Train the neural network for the given number of epochs
@@ -305,8 +304,13 @@ void ANNTrainTestSplit(double** dataset, unsigned int num_rows, unsigned int num
 	unsigned int num_train_rows = (unsigned int)(num_rows * ratio);
 
 	// Allocate memory for the training and test sets
-	*train_return = (double*)malloc(num_train_rows * num_cols * sizeof(double));
-	*test_return = (double*)malloc((num_rows - num_train_rows) * num_cols * sizeof(double));
+	train_return = (double**)malloc(num_train_rows * sizeof(double*));
+	for (unsigned int r = 0; r < num_train_rows; r++)
+		train_return[r] = (double*)malloc(num_cols * sizeof(double));
+
+	test_return = (double**)malloc((num_rows - num_train_rows) * sizeof(double*));
+	for (unsigned int r = 0; r < num_train_rows; r++)
+		test_return[r] = (double*)malloc(num_cols * sizeof(double));
 
 	// Copy the training samples to the training set
 	for (unsigned int i = 0; i < num_train_rows; i++) {
@@ -332,11 +336,9 @@ double* ANNLabelExtract(double** dataset, unsigned int label_col_index, unsigned
 	// Extract the label column and remove it from the dataset
 	for (unsigned int i = 0; i < num_rows; i++) {
 		label_column[i] = dataset[i][label_col_index];
-
-		for (unsigned int j = label_col_index; j < num_cols - 1; j++) {
-			dataset[i][j] = dataset[i][j + 1];
-		}
 	}
+
+	ANNDeleteFeature(dataset, label_col_index, num_rows, num_cols);
 
 	return label_column;
 }

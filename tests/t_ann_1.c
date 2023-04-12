@@ -46,14 +46,17 @@ int main()
 	unsigned int nrows, ncols;
 
 	double** dataset = ANNReadCSV("Z:/c-ann-matrix/c-ann-matrix/tests/BostonHousing.txt", &nrows, &ncols);
-	double** train, **test;
-	double* train_feature, *test_feature, *train_label, *test_label;
+	double** train_feature, **test_feature, *train_label, *test_label;
 
-	ANNTrainTestSplit(dataset, nrows, ncols, 0.7, train, test);
-	ANNLabelExtract()
+	ANNTrainTestSplit(dataset, nrows, ncols, 0.7, train_feature, test_feature);
+	train_label = ANNLabelExtract(train_feature, 13, nrows, ncols);
+	test_label = ANNLabelExtract(test_feature, 13, nrows, ncols);
 
-	ANNTrain(ann, 0.01, 250);
-
+	for (unsigned int i = 0; i < nrows; i++)
+	{
+		ANNTrain(ann, train_feature[i], &train_label[i], 0.01, 250);
+	}
+	
 	int res;
 	scanf("%d", &res);
 }
