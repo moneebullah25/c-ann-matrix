@@ -23,7 +23,7 @@ double ReLU(double x) {
 	return x > 0 ? x : 0;
 }
 
-double DReLU(double x) {
+double D_ReLU(double x) {
 	return x > 0 ? 1 : 0;
 }
 
@@ -39,7 +39,7 @@ double PReLU(double x, double alpha) {
 	return x > 0 ? x : alpha * x * x;
 }
 
-double D_ReLU(double x, double alpha) {
+double D_PReLU(double x, double alpha) {
 	return x > 0 ? 1 : 2 * alpha * x;
 }
 
